@@ -107,6 +107,17 @@ public class Library {
         if (searchByType == SearchByType.NAME) {
             return null;
         }
+
+        if (searchByType == SearchByType.ID) {
+            ArrayList<Book> queryBooks = new ArrayList<Book>();
+            for (Book book : books) {
+                if (keys.contains(book.getId())) {
+                    queryBooks.add(book);
+                }
+            }
+            return queryBooks;
+        }
+
         return books;
     }
 
