@@ -93,8 +93,10 @@ public class Library {
      * @return The list of books that match the search criteria. Returns null if search type is name.
      */
     public ArrayList<Book> searchBooks(SearchByType searchByType, ArrayList<Object> keys) {
-        // TODO complete function
-        return null;
+        if (searchByType == SearchByType.NAME) {
+            return null;
+        }
+        return books;
     }
 
     /**
