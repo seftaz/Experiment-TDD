@@ -118,4 +118,23 @@ class LibraryTest {
         ArrayList<Student> students = library.searchStudents(SearchByType.ID, new ArrayList<>(Arrays.asList(25, 26)));
         assertArrayEquals(students.toArray(), wanted.toArray());
     }
+
+    @org.junit.jupiter.api.Test
+    void searchBooksByID() {
+        Library library = new Library();
+
+        Book book1 = new Book("Book-1", "Author-1", 10);
+        Book book2 = new Book("Book-2", "Author-2", 11);
+        Book book3 = new Book("Book-3", "Author-3", 12);
+
+
+        library.addBook(book1);
+        library.addBook(book2);
+        library.addBook(book3);
+
+        var keys = new ArrayList<Object>(Arrays.asList(10, 12));
+
+        assertEquals(new ArrayList<Book>(Arrays.asList(book1, book3)), library.searchBooks(SearchByType.ID, keys));
+    }
+
 }
