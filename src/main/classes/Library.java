@@ -128,6 +128,16 @@ public class Library {
             return queryBooks;
         }
 
+        if (searchByType == SearchByType.AUTHOR) {
+            ArrayList<Book> queryBooks = new ArrayList<Book>();
+            for (Book book : books) {
+                if (keys.contains(book.getAuthor())) {
+                    queryBooks.add(book);
+                }
+            }
+            return queryBooks;
+        }
+
         return null;
     }
 

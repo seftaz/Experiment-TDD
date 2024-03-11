@@ -190,7 +190,7 @@ class LibraryTest {
 
         var keys = new ArrayList<Object>(Arrays.asList("Author-2", "Author-3"));
 
-        assertEquals(new ArrayList<Book>(Arrays.asList(book2, book3)), library.searchBooks(SearchByType.TITLE, keys));
+        assertEquals(new ArrayList<Book>(Arrays.asList(book2, book3)), library.searchBooks(SearchByType.AUTHOR, keys));
     }
 
 }
