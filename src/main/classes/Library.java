@@ -83,7 +83,13 @@ public class Library {
         if (searchByType == SearchByType.TITLE || searchByType == SearchByType.AUTHOR) {
             return null;
         }
-        return null;
+        ArrayList<Student> studentArrayList = new ArrayList<>();
+        for (Student student: students) {
+            if (keys.contains(student.getID())) {
+                studentArrayList.add(student);
+            }
+        }
+        return studentArrayList;
     }
 
     /**
