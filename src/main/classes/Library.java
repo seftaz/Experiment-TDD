@@ -85,7 +85,10 @@ public class Library {
         }
         ArrayList<Student> studentArrayList = new ArrayList<>();
         for (Student student: students) {
-            if (keys.contains(student.getID())) {
+            if (searchByType == SearchByType.ID && keys.contains(student.getID())) {
+                studentArrayList.add(student);
+            }
+            if (searchByType == SearchByType.NAME && keys.contains(student.getName())) {
                 studentArrayList.add(student);
             }
         }
