@@ -175,4 +175,22 @@ class LibraryTest {
         assertEquals(new ArrayList<Book>(Arrays.asList(book1, book2)), library.searchBooks(SearchByType.TITLE, keys));
     }
 
+    @org.junit.jupiter.api.Test
+    void searchBooksByAuthor() {
+        Library library = new Library();
+
+        Book book1 = new Book("Book-1", "Author-1", 10);
+        Book book2 = new Book("Book-2", "Author-2", 11);
+        Book book3 = new Book("Book-3", "Author-3", 12);
+
+
+        library.addBook(book1);
+        library.addBook(book2);
+        library.addBook(book3);
+
+        var keys = new ArrayList<Object>(Arrays.asList("Author-2", "Author-3"));
+
+        assertEquals(new ArrayList<Book>(Arrays.asList(book2, book3)), library.searchBooks(SearchByType.TITLE, keys));
+    }
+
 }
