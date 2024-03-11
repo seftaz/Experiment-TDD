@@ -82,4 +82,20 @@ class LibraryTest {
         assertNull(library.searchStudents(author, new ArrayList<>(List.of("Gholam"))));
         assertNull(library.searchStudents(title, new ArrayList<>(List.of(25))));
     }
+
+    @org.junit.jupiter.api.Test
+    void notName() {
+        Library library = new Library();
+
+        Book book1 = new Book("Book-1", "Author-1", 10);
+        Book book2 = new Book("Book-2", "Author-2", 11);
+
+
+        library.addBook(book1);
+        library.addBook(book2);
+
+        var keys = new ArrayList<Object>(Arrays.asList("Book-1", "Book-2"));
+
+        assertNull(library.searchBooks(SearchByType.NAME, keys));
+    }
 }
