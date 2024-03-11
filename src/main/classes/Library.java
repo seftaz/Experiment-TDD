@@ -80,8 +80,19 @@ public class Library {
      * @return The list of students that match the search criteria. Returns null if search type is title or author.
      */
     public ArrayList<Student> searchStudents(SearchByType searchByType, ArrayList<Object> keys) {
-        // TODO complete function
-        return null;
+        if (searchByType == SearchByType.TITLE || searchByType == SearchByType.AUTHOR) {
+            return null;
+        }
+        ArrayList<Student> studentArrayList = new ArrayList<>();
+        for (Student student: students) {
+            if (searchByType == SearchByType.ID && keys.contains(student.getID())) {
+                studentArrayList.add(student);
+            }
+            if (searchByType == SearchByType.NAME && keys.contains(student.getName())) {
+                studentArrayList.add(student);
+            }
+        }
+        return studentArrayList;
     }
 
     /**
@@ -93,7 +104,40 @@ public class Library {
      * @return The list of books that match the search criteria. Returns null if search type is name.
      */
     public ArrayList<Book> searchBooks(SearchByType searchByType, ArrayList<Object> keys) {
-        // TODO complete function
+        if (searchByType == SearchByType.NAME) {
+            return null;
+        }
+
+        if (searchByType == SearchByType.ID) {
+            ArrayList<Book> queryBooks = new ArrayList<Book>();
+            for (Book book : books) {
+                if (keys.contains(book.getId())) {
+                    queryBooks.add(book);
+                }
+            }
+            return queryBooks;
+        }
+
+        if (searchByType == SearchByType.TITLE) {
+            ArrayList<Book> queryBooks = new ArrayList<Book>();
+            for (Book book : books) {
+                if (keys.contains(book.getTitle())) {
+                    queryBooks.add(book);
+                }
+            }
+            return queryBooks;
+        }
+
+        if (searchByType == SearchByType.AUTHOR) {
+            ArrayList<Book> queryBooks = new ArrayList<Book>();
+            for (Book book : books) {
+                if (keys.contains(book.getAuthor())) {
+                    queryBooks.add(book);
+                }
+            }
+            return queryBooks;
+        }
+
         return null;
     }
 
