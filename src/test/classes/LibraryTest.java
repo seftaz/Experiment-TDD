@@ -2,7 +2,12 @@ package test.classes;
 
 import main.classes.Book;
 import main.classes.Library;
+import main.classes.SearchByType;
 import main.classes.Student;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -63,5 +68,18 @@ class LibraryTest {
                 () -> assertFalse(library.returnBook(book1, student1)));
 
 
+    }
+
+    @org.junit.jupiter.api.Test
+    void nullReturnWhenWrongTypeInSearchStudents() {
+        Library library = new Library();
+
+        SearchByType author = SearchByType.AUTHOR;
+        SearchByType title = SearchByType.TITLE;
+
+        Student student = new Student("Gholam", 25);
+
+        assertNull(library.searchStudents(author, new ArrayList<>(List.of("Gholam"))));
+        assertNull(library.searchStudents(title, new ArrayList<>(List.of(25))));
     }
 }
